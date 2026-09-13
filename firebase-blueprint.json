@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "UserFact": {
+      "title": "UserFact",
+      "description": "Personal fact remembered about the user by Diablo",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user who owns this fact"
+        },
+        "key": {
+          "type": "string",
+          "description": "The category or identifier of the fact"
+        },
+        "value": {
+          "type": "string",
+          "description": "The detailed fact information"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when this fact was created or updated"
+        }
+      },
+      "required": ["userId", "key", "value"]
+    },
+    "UserConversation": {
+      "title": "UserConversation",
+      "description": "Private conversation turn between user and Diablo",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of speaker (user or assistant)"
+        },
+        "text": {
+          "type": "string",
+          "description": "Transcribed or spoken message text"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of message turn"
+        }
+      },
+      "required": ["userId", "role", "text"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/facts/{factKey}": {
+      "schema": "UserFact",
+      "description": "Personal facts remembered per authenticated user"
+    },
+    "/users/{userId}/conversations/{conversationId}": {
+      "schema": "UserConversation",
+      "description": "Private conversation turns recorded per authenticated user"
+    }
+  }
+}

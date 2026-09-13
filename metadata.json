@@ -1,0 +1,6 @@
+{
+  "name": "Diablo AI Voice Assistant",
+  "description": "Real-time voice-to-voice AI assistant powered by Gemini Live with wake word activation, Jarvis personality, interruption handling, and device actions.",
+  "requestFramePermissions": ["microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

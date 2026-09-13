@@ -1,0 +1,15 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Note: Netlify is a static CDN host and does not run persistent Node.js servers or WebSockets.
+# To use Netlify for the frontend:
+# 1. Deploy the backend on Render (free tier) or Docker/Koyeb (free tier).
+# 2. Set the environment variable VITE_BACKEND_URL in Netlify Site Settings to your backend URL (e.g. https://your-diablo-app.onrender.com).
+# 3. Netlify will build the frontend with the correct backend and WebSocket endpoints.
+
+# SPA client-side fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
